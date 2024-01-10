@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'metrics'
+    'apps.metrics'
 ]
 
 MIDDLEWARE = [
@@ -71,14 +71,30 @@ TEMPLATES = [
 WSGI_APPLICATION = 'iserver.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        "ENGINE":'mssql',
+        'NAME':'iDataGenerator',
+        'HOST': 'INTHN1-APP01\SQLEXPRESS',
+        'PORT': '',
+        'OPTIONS': {
+             'driver': 'SQL Server Native Client 11.0',
+            #  'unicode_results': True,
+        },
+        'iqtabs' :{
+
+            "ENGINE":'mssql',
+            "NAME" : "iQTabs",
+            "HOST": "INTHN1-APP01\SQLEXPRESS",
+            "PORT": '',
+            "OPTIONS" : {
+                    'driver': 'SQL Server Native Client 11.0',
+                    # 'unicode_results': True,
+            }
+
+        }
+    },
 }
 
 
